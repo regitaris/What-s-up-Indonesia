@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Portal</title>
+    <!-- Src: source (brings in chart.js), 
+    copied from https:??cdnjs.com/Libraries/Chart.js-->
+    <Script src="https://cdn.jsdelivr.net/npm/chart.js"></Script>
+    <!-- bringing in styles.css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- h1 to h6 : heading -->
+    <h1 style="color:aquamarine; 
+    text-decoration: underline;
+    font-weight: 700;">
+    News Highlight</h1>
+    <h2 style="color:#267DC2">Bank Indonesia Interest Rate Analysis</h2>
+    <h3>WNI reacts to interest rate hike!</h3>
+    <h6>sumber: detik.com</h6>
+    <!-- hr : horizontal line -->
+    <hr>
+    <!-- img: image, sr: source, alt: alternate -->
+    <img src="https://www.bi.go.id/id/publikasi/ruang-media/news-release/PublishingImages/Pages/sp_230321/Header_Artboard_2020.jpg"
+    alt="bank indonesia ceremony">
+
+    <!-- ul: unordered list, ol: ordered list -->
+    <ul>
+        <li>Indonesia interest rate hike for second year in a row</li>
+        <li>CPI and consumer index being monitored closely</li>
+        <li>Another 2.5% hike "possible", said representatives</li>
+        <li>Indonesia in an effort to control raising inflations</li>
+    </ul>
+    <!-- p: paragraph -->
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde perspiciatis mollitia nesciunt cum incidunt facilis, nobis magnam illo natus, pariatur repellendus deserunt facere asperiores aut delectus reprehenderit. Saepe, repudiandae animi.
+    </p>
+
+    <h3>Interest Rate Chart</h3>
+    <div>
+        <canvas id="interestrate"></canvas>
+      </div>
+      <script>
+        const labels = [
+          'January',
+          'February',
+          'March',
+          'April',
+          'May',
+          'June',
+        ];
+      
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'Interest Rate (Indonesia)',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45],
+          }]
+        };
+      
+        const config = {
+  type: 'bar',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Chart.js Bar Chart'
+      }
+    }
+  },
+};
+      </script>
+<script>
+    const myChart = new Chart(
+      document.getElementById('interestrate'),
+      config
+    );
+  </script>
+              
+</body>
+</html>
