@@ -17,6 +17,16 @@
     text-decoration: underline;
     font-weight: 700;">
     News Highlight</h1>
+    <div id="currencyToday"class="my-4"></div>
+
+    <h6>USD to IDR Exchange Rate for
+      <span id="dateToday"
+        class="my-4" style="text-decoration: underline;"></span>:
+    <div id="currencyExchange"></div>
+      
+  </h6>
+    
+
     <h2 style="color:#267DC2">Bank Indonesia Interest Rate Analysis</h2>
     <h3>WNI reacts to interest rate hike!</h3>
     <h6>sumber: detik.com</h6>
@@ -84,7 +94,17 @@
       document.getElementById('interestrate'),
       config
     );
+  </script> 
+  <script>
+    const currentDate = new Date().toDateString();
+    elm=document.getElementById("currencyToday");
+    elm.innerHTML=currentDate;
+    exchangeElm=document.getElementById("currencyExchange");
+    fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json")
+      .then(resp => resp.json())
+      .then(data => exchangeElm.innerHTML = data.usd.idr)
   </script>
+  
               
 </body>
 </html>
